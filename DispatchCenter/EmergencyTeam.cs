@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DispatchCenter
 {
-    internal class EmergencyTeam
+    internal abstract  class EmergencyTeam
     {
         public string teamName { get; set; }
         public string location { get; set; }
@@ -18,14 +18,11 @@ namespace DispatchCenter
             this.location = location;
             this.isAvailable = true;
         }
-        public virtual bool CanHandle(EmergencyReport report)
-        {
-            
-            return false;
-        }
-        public virtual void Handle(EmergencyReport report)
-        {
-            Console.WriteLine("cannot respond");
-        }
+        public abstract bool CanHandle(EmergencyReport report);
+
+
+
+        public abstract void Handle(EmergencyReport report);
+        
     }
 }
